@@ -1,0 +1,14 @@
+<h1>Inscription à la newletter</h1>
+
+<a href="/">Retourner à l'accueil</a>
+
+<%= form_tag url_for(action: 'create'), method: "post" do %>
+  <%= text_field_tag 'name', placeholder ="nom" %>
+  <br /> <br />
+
+  <%= email_field_tag 'email', placeholder = "email@email.com" %>
+  <br /> <br />
+
+  <%= submit_tag "S'enregistrer" %>
+
+<% end %>

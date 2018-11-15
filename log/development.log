@@ -1,0 +1,1125 @@
+  [1m[35m (1115.0ms)[0m  [1m[35mCREATE DATABASE "Apps_development" ENCODING = 'unicode'[0m
+  ↳ bin/rake:9
+  [1m[35m (526.8ms)[0m  [1m[35mCREATE DATABASE "Apps_test" ENCODING = 'unicode'[0m
+  ↳ bin/rake:9
+  [1m[35m (159.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:9
+  [1m[35m (97.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3380273540718758670)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateUsers (20181115103936)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (85.8ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying, "email" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20181115103936_create_users.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (25.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20181115103936"]]
+  ↳ bin/rails:9
+  [1m[35m (38.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-11-15 10:41:14.206162"], ["updated_at", "2018-11-15 10:41:14.206162"]]
+  ↳ bin/rails:9
+  [1m[35m (2.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(3380273540718758670)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "colin"], ["email", "colin.lecordier@gmail.com"], ["created_at", "2018-11-15 10:43:14.576691"], ["updated_at", "2018-11-15 10:43:14.576691"]]
+  [1m[35m (453.8ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/" for 127.0.0.1 at 2018-11-15 13:39:49 +0100
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/colin/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/colin/.rvm/gems/ruby-2.5.1/gems/railties-5.2.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/colin/.rvm/gems/ruby-2.5.1/gems/railties-5.2.1/lib/rails/templates/rails/welcome/index.html.erb (5.7ms)
+Completed 200 OK in 82ms (Views: 34.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/rails/mailers/contact_mailer/contact" for 127.0.0.1 at 2018-11-15 13:49:01 +0100
+Processing by Rails::MailersController#preview as HTML
+  Parameters: {"path"=>"contact_mailer/contact"}
+Completed 500 Internal Server Error in 380ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/home/colin/Documents/thp/semaine_07/jeudi/THP_FREE_COM_2.0/app/mailers/contact_mailer.rb:3: syntax error, unexpected '}', expecting =>
+...om', to: { User.pluck(:email) }
+...                              ^):
+  
+app/mailers/contact_mailer.rb:3: syntax error, unexpected '}', expecting =>
+test/mailers/previews/contact_mailer_preview.rb:5:in `contact'
+Started GET "/rails/mailers/contact_mailer/contact." for 127.0.0.1 at 2018-11-15 13:49:36 +0100
+Processing by Rails::MailersController#preview as HTML
+  Parameters: {"path"=>"contact_mailer/contact."}
+Completed 404 Not Found in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+AbstractController::ActionNotFound (Email 'contact.' not found in ContactMailerPreview):
+  
+railties (5.2.1) lib/rails/mailers_controller.rb:42:in `preview'
+actionpack (5.2.1) lib/action_controller/metal/basic_implicit_render.rb:6:in `send_action'
+actionpack (5.2.1) lib/abstract_controller/base.rb:194:in `process_action'
+actionpack (5.2.1) lib/action_controller/metal/rendering.rb:30:in `process_action'
+actionpack (5.2.1) lib/abstract_controller/callbacks.rb:42:in `block in process_action'
+activesupport (5.2.1) lib/active_support/callbacks.rb:132:in `run_callbacks'
+actionpack (5.2.1) lib/abstract_controller/callbacks.rb:41:in `process_action'
+actionpack (5.2.1) lib/action_controller/metal/rescue.rb:22:in `process_action'
+actionpack (5.2.1) lib/action_controller/metal/instrumentation.rb:34:in `block in process_action'
+activesupport (5.2.1) lib/active_support/notifications.rb:168:in `block in instrument'
+activesupport (5.2.1) lib/active_support/notifications/instrumenter.rb:23:in `instrument'
+activesupport (5.2.1) lib/active_support/notifications.rb:168:in `instrument'
+actionpack (5.2.1) lib/action_controller/metal/instrumentation.rb:32:in `process_action'
+actionpack (5.2.1) lib/action_controller/metal/params_wrapper.rb:256:in `process_action'
+activerecord (5.2.1) lib/active_record/railties/controller_runtime.rb:24:in `process_action'
+actionpack (5.2.1) lib/abstract_controller/base.rb:134:in `process'
+actionview (5.2.1) lib/action_view/rendering.rb:32:in `process'
+actionpack (5.2.1) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (5.2.1) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (5.2.1) lib/action_dispatch/routing/route_set.rb:52:in `dispatch'
+actionpack (5.2.1) lib/action_dispatch/routing/route_set.rb:34:in `serve'
+actionpack (5.2.1) lib/action_dispatch/journey/router.rb:52:in `block in serve'
+actionpack (5.2.1) lib/action_dispatch/journey/router.rb:35:in `each'
+actionpack (5.2.1) lib/action_dispatch/journey/router.rb:35:in `serve'
+actionpack (5.2.1) lib/action_dispatch/routing/route_set.rb:840:in `call'
+rack (2.0.6) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.0.6) lib/rack/etag.rb:25:in `call'
+rack (2.0.6) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.6) lib/rack/head.rb:12:in `call'
+actionpack (5.2.1) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.0.6) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.6) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/cookies.rb:670:in `call'
+activerecord (5.2.1) lib/active_record/migration.rb:559:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.1) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/rails/mailers/contact_mailer/" for 127.0.0.1 at 2018-11-15 13:49:47 +0100
+Processing by Rails::MailersController#preview as HTML
+  Parameters: {"path"=>"contact_mailer"}
+  Rendering /home/colin/.rvm/gems/ruby-2.5.1/gems/railties-5.2.1/lib/rails/templates/rails/mailers/mailer.html.erb within layouts/application
+  Rendered /home/colin/.rvm/gems/ruby-2.5.1/gems/railties-5.2.1/lib/rails/templates/rails/mailers/mailer.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 64ms (Views: 63.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/rails/mailers/contact_mailer/contact" for 127.0.0.1 at 2018-11-15 13:49:50 +0100
+Processing by Rails::MailersController#preview as HTML
+  Parameters: {"path"=>"contact_mailer/contact"}
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/home/colin/Documents/thp/semaine_07/jeudi/THP_FREE_COM_2.0/app/mailers/contact_mailer.rb:3: syntax error, unexpected '}', expecting =>
+...om', to: { User.pluck(:email) }
+...                              ^):
+  
+app/mailers/contact_mailer.rb:3: syntax error, unexpected '}', expecting =>
+test/mailers/previews/contact_mailer_preview.rb:5:in `contact'
+Started GET "/rails/mailers/contact_mailer/" for 127.0.0.1 at 2018-11-15 13:50:53 +0100
+Processing by Rails::MailersController#preview as HTML
+  Parameters: {"path"=>"contact_mailer"}
+  Rendering /home/colin/.rvm/gems/ruby-2.5.1/gems/railties-5.2.1/lib/rails/templates/rails/mailers/mailer.html.erb within layouts/application
+  Rendered /home/colin/.rvm/gems/ruby-2.5.1/gems/railties-5.2.1/lib/rails/templates/rails/mailers/mailer.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 5ms (Views: 4.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/rails/mailers/contact_mailer/" for 127.0.0.1 at 2018-11-15 13:53:09 +0100
+Processing by Rails::MailersController#preview as HTML
+  Parameters: {"path"=>"contact_mailer"}
+  Rendering /home/colin/.rvm/gems/ruby-2.5.1/gems/railties-5.2.1/lib/rails/templates/rails/mailers/mailer.html.erb within layouts/application
+  Rendered /home/colin/.rvm/gems/ruby-2.5.1/gems/railties-5.2.1/lib/rails/templates/rails/mailers/mailer.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 3ms (Views: 2.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/rails/mailers/contact_mailer/contact" for 127.0.0.1 at 2018-11-15 13:53:10 +0100
+Processing by Rails::MailersController#preview as HTML
+  Parameters: {"path"=>"contact_mailer/contact"}
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/home/colin/Documents/thp/semaine_07/jeudi/THP_FREE_COM_2.0/app/mailers/contact_mailer.rb:3: syntax error, unexpected '}', expecting =>
+...om', to: { User.pluck(:email) }
+...                              ^):
+  
+app/mailers/contact_mailer.rb:3: syntax error, unexpected '}', expecting =>
+test/mailers/previews/contact_mailer_preview.rb:5:in `contact'
+Started GET "/rails/mailers/contact_mailer/" for 127.0.0.1 at 2018-11-15 13:53:29 +0100
+Processing by Rails::MailersController#preview as HTML
+  Parameters: {"path"=>"contact_mailer"}
+  Rendering /home/colin/.rvm/gems/ruby-2.5.1/gems/railties-5.2.1/lib/rails/templates/rails/mailers/mailer.html.erb within layouts/application
+  Rendered /home/colin/.rvm/gems/ruby-2.5.1/gems/railties-5.2.1/lib/rails/templates/rails/mailers/mailer.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 4ms (Views: 3.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/rails/mailers/contact_mailer/contact" for 127.0.0.1 at 2018-11-15 13:53:30 +0100
+Processing by Rails::MailersController#preview as HTML
+  Parameters: {"path"=>"contact_mailer/contact"}
+  Rendering contact_mailer/contact.html.erb within layouts/mailer
+  Rendered contact_mailer/contact.html.erb within layouts/mailer (2.1ms)
+ContactMailer#contact: processed outbound mail in 20.8ms
+Completed 500 Internal Server Error in 67ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `name' for nil:NilClass):
+    1: <p>Dear <%= @user.name %>,</p>
+    2: 
+    3: <p>We want Spam for breakfast.</p>
+    4: 
+  
+app/views/contact_mailer/contact.html.erb:1:in `_app_views_contact_mailer_contact_html_erb___2174812060231155100_47069767143460'
+app/mailers/contact_mailer.rb:5:in `contact'
+Started GET "/rails/mailers/contact_mailer/" for 127.0.0.1 at 2018-11-15 13:53:50 +0100
+Processing by Rails::MailersController#preview as HTML
+  Parameters: {"path"=>"contact_mailer"}
+  Rendering /home/colin/.rvm/gems/ruby-2.5.1/gems/railties-5.2.1/lib/rails/templates/rails/mailers/mailer.html.erb within layouts/application
+  Rendered /home/colin/.rvm/gems/ruby-2.5.1/gems/railties-5.2.1/lib/rails/templates/rails/mailers/mailer.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 4ms (Views: 3.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/rails/mailers/contact_mailer/contact" for 127.0.0.1 at 2018-11-15 13:53:51 +0100
+Processing by Rails::MailersController#preview as HTML
+  Parameters: {"path"=>"contact_mailer/contact"}
+  Rendering contact_mailer/contact.html.erb within layouts/mailer
+  Rendered contact_mailer/contact.html.erb within layouts/mailer (0.3ms)
+  Rendering contact_mailer/contact.text.erb within layouts/mailer
+  Rendered contact_mailer/contact.text.erb within layouts/mailer (0.5ms)
+ContactMailer#contact: processed outbound mail in 784.8ms
+  Rendering /home/colin/.rvm/gems/ruby-2.5.1/gems/railties-5.2.1/lib/rails/templates/rails/mailers/email.html.erb
+  Rendered /home/colin/.rvm/gems/ruby-2.5.1/gems/railties-5.2.1/lib/rails/templates/rails/mailers/email.html.erb (8.2ms)
+Completed 200 OK in 810ms (Views: 23.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/rails/mailers/contact_mailer/contact?part=text%2Fhtml" for 127.0.0.1 at 2018-11-15 13:53:52 +0100
+Processing by Rails::MailersController#preview as HTML
+  Parameters: {"part"=>"text/html", "path"=>"contact_mailer/contact"}
+  Rendering contact_mailer/contact.html.erb within layouts/mailer
+  Rendered contact_mailer/contact.html.erb within layouts/mailer (0.6ms)
+  Rendering contact_mailer/contact.text.erb within layouts/mailer
+  Rendered contact_mailer/contact.text.erb within layouts/mailer (0.4ms)
+ContactMailer#contact: processed outbound mail in 13.5ms
+  Rendering text template
+  Rendered text template (0.0ms)
+Completed 200 OK in 18ms (Views: 1.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/rails/mailers/contact_mailer/contact?part=text%2Fplain" for 127.0.0.1 at 2018-11-15 13:53:56 +0100
+Processing by Rails::MailersController#preview as HTML
+  Parameters: {"part"=>"text/plain", "path"=>"contact_mailer/contact"}
+  Rendering contact_mailer/contact.html.erb within layouts/mailer
+  Rendered contact_mailer/contact.html.erb within layouts/mailer (0.3ms)
+  Rendering contact_mailer/contact.text.erb within layouts/mailer
+  Rendered contact_mailer/contact.text.erb within layouts/mailer (0.2ms)
+ContactMailer#contact: processed outbound mail in 9.1ms
+  Rendering text template
+  Rendered text template (0.0ms)
+Completed 200 OK in 12ms (Views: 0.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/rails/mailers/contact_mailer/contact.txt?part=text%2Fhtml" for 127.0.0.1 at 2018-11-15 13:53:57 +0100
+Processing by Rails::MailersController#preview as TEXT
+  Parameters: {"part"=>"text/html", "path"=>"contact_mailer/contact"}
+  Rendering contact_mailer/contact.html.erb within layouts/mailer
+  Rendered contact_mailer/contact.html.erb within layouts/mailer (0.3ms)
+  Rendering contact_mailer/contact.text.erb within layouts/mailer
+  Rendered contact_mailer/contact.text.erb within layouts/mailer (0.2ms)
+ContactMailer#contact: processed outbound mail in 11.4ms
+  Rendering text template
+  Rendered text template (0.0ms)
+Completed 200 OK in 14ms (Views: 0.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/rails/mailers/contact_mailer/contact.html?part=text%2Fplain" for 127.0.0.1 at 2018-11-15 13:54:00 +0100
+Processing by Rails::MailersController#preview as HTML
+  Parameters: {"part"=>"text/plain", "path"=>"contact_mailer/contact"}
+  Rendering contact_mailer/contact.html.erb within layouts/mailer
+  Rendered contact_mailer/contact.html.erb within layouts/mailer (0.4ms)
+  Rendering contact_mailer/contact.text.erb within layouts/mailer
+  Rendered contact_mailer/contact.text.erb within layouts/mailer (0.2ms)
+ContactMailer#contact: processed outbound mail in 10.2ms
+  Rendering text template
+  Rendered text template (0.0ms)
+Completed 200 OK in 13ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/rails/mailers/contact_mailer/contact.txt?part=text%2Fhtml" for 127.0.0.1 at 2018-11-15 13:54:01 +0100
+Processing by Rails::MailersController#preview as TEXT
+  Parameters: {"part"=>"text/html", "path"=>"contact_mailer/contact"}
+  Rendering contact_mailer/contact.html.erb within layouts/mailer
+  Rendered contact_mailer/contact.html.erb within layouts/mailer (0.3ms)
+  Rendering contact_mailer/contact.text.erb within layouts/mailer
+  Rendered contact_mailer/contact.text.erb within layouts/mailer (0.2ms)
+ContactMailer#contact: processed outbound mail in 10.3ms
+  Rendering text template
+  Rendered text template (0.0ms)
+Completed 200 OK in 13ms (Views: 0.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/rails/mailers/contact_mailer/contact.html" for 127.0.0.1 at 2018-11-15 13:56:30 +0100
+Processing by Rails::MailersController#preview as HTML
+  Parameters: {"path"=>"contact_mailer/contact"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ test/mailers/previews/contact_mailer_preview.rb:5
+  Rendering contact_mailer/contact.html.erb within layouts/mailer
+  Rendered contact_mailer/contact.html.erb within layouts/mailer (0.5ms)
+  Rendering contact_mailer/contact.text.erb within layouts/mailer
+  Rendered contact_mailer/contact.text.erb within layouts/mailer (0.3ms)
+ContactMailer#contact: processed outbound mail in 16.7ms
+  Rendering /home/colin/.rvm/gems/ruby-2.5.1/gems/railties-5.2.1/lib/rails/templates/rails/mailers/email.html.erb
+  Rendered /home/colin/.rvm/gems/ruby-2.5.1/gems/railties-5.2.1/lib/rails/templates/rails/mailers/email.html.erb (3.7ms)
+Completed 200 OK in 149ms (Views: 4.8ms | ActiveRecord: 10.9ms)
+
+
+Started GET "/rails/mailers/contact_mailer/contact.html?part=text%2Fhtml" for 127.0.0.1 at 2018-11-15 13:56:30 +0100
+Processing by Rails::MailersController#preview as HTML
+  Parameters: {"part"=>"text/html", "path"=>"contact_mailer/contact"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ test/mailers/previews/contact_mailer_preview.rb:5
+  Rendering contact_mailer/contact.html.erb within layouts/mailer
+  Rendered contact_mailer/contact.html.erb within layouts/mailer (0.8ms)
+  Rendering contact_mailer/contact.text.erb within layouts/mailer
+  Rendered contact_mailer/contact.text.erb within layouts/mailer (0.3ms)
+ContactMailer#contact: processed outbound mail in 18.1ms
+  Rendering text template
+  Rendered text template (0.0ms)
+Completed 200 OK in 28ms (Views: 0.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/rails/mailers/contact_mailer/contact.html" for 127.0.0.1 at 2018-11-15 13:56:33 +0100
+Processing by Rails::MailersController#preview as HTML
+  Parameters: {"path"=>"contact_mailer/contact"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ test/mailers/previews/contact_mailer_preview.rb:5
+  Rendering contact_mailer/contact.html.erb within layouts/mailer
+  Rendered contact_mailer/contact.html.erb within layouts/mailer (1.1ms)
+  Rendering contact_mailer/contact.text.erb within layouts/mailer
+  Rendered contact_mailer/contact.text.erb within layouts/mailer (0.8ms)
+ContactMailer#contact: processed outbound mail in 16.9ms
+  Rendering /home/colin/.rvm/gems/ruby-2.5.1/gems/railties-5.2.1/lib/rails/templates/rails/mailers/email.html.erb
+  Rendered /home/colin/.rvm/gems/ruby-2.5.1/gems/railties-5.2.1/lib/rails/templates/rails/mailers/email.html.erb (8.4ms)
+Completed 200 OK in 32ms (Views: 9.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/rails/mailers/contact_mailer/contact.html?part=text%2Fhtml" for 127.0.0.1 at 2018-11-15 13:56:34 +0100
+Processing by Rails::MailersController#preview as HTML
+  Parameters: {"part"=>"text/html", "path"=>"contact_mailer/contact"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ test/mailers/previews/contact_mailer_preview.rb:5
+  Rendering contact_mailer/contact.html.erb within layouts/mailer
+  Rendered contact_mailer/contact.html.erb within layouts/mailer (0.5ms)
+  Rendering contact_mailer/contact.text.erb within layouts/mailer
+  Rendered contact_mailer/contact.text.erb within layouts/mailer (0.4ms)
+ContactMailer#contact: processed outbound mail in 23.4ms
+  Rendering text template
+  Rendered text template (0.0ms)
+Completed 200 OK in 29ms (Views: 0.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/rails/mailers/contact_mailer/contact.html" for 127.0.0.1 at 2018-11-15 13:56:34 +0100
+Processing by Rails::MailersController#preview as HTML
+  Parameters: {"path"=>"contact_mailer/contact"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ test/mailers/previews/contact_mailer_preview.rb:5
+  Rendering contact_mailer/contact.html.erb within layouts/mailer
+  Rendered contact_mailer/contact.html.erb within layouts/mailer (0.4ms)
+  Rendering contact_mailer/contact.text.erb within layouts/mailer
+  Rendered contact_mailer/contact.text.erb within layouts/mailer (0.5ms)
+ContactMailer#contact: processed outbound mail in 10.6ms
+  Rendering /home/colin/.rvm/gems/ruby-2.5.1/gems/railties-5.2.1/lib/rails/templates/rails/mailers/email.html.erb
+  Rendered /home/colin/.rvm/gems/ruby-2.5.1/gems/railties-5.2.1/lib/rails/templates/rails/mailers/email.html.erb (2.6ms)
+Completed 200 OK in 17ms (Views: 3.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/rails/mailers/contact_mailer/contact.html?part=text%2Fhtml" for 127.0.0.1 at 2018-11-15 13:56:35 +0100
+Processing by Rails::MailersController#preview as HTML
+  Parameters: {"part"=>"text/html", "path"=>"contact_mailer/contact"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ test/mailers/previews/contact_mailer_preview.rb:5
+  Rendering contact_mailer/contact.html.erb within layouts/mailer
+  Rendered contact_mailer/contact.html.erb within layouts/mailer (0.6ms)
+  Rendering contact_mailer/contact.text.erb within layouts/mailer
+  Rendered contact_mailer/contact.text.erb within layouts/mailer (0.4ms)
+ContactMailer#contact: processed outbound mail in 13.8ms
+  Rendering text template
+  Rendered text template (0.0ms)
+Completed 200 OK in 18ms (Views: 0.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-15 15:03:40 +0100
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/colin/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by CamionController#view as HTML
+  Rendering camion/view.html.erb within layouts/application
+  Rendered camion/view.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 2235ms (Views: 2208.2ms | ActiveRecord: 4.8ms)
+
+
+Started POST "/" for 127.0.0.1 at 2018-11-15 15:03:51 +0100
+Processing by CamionController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"zxRw5Ad7caFal34uqcf1VPgO1qu0iVsMdzVxCoQ4JnrVuAM+HJVH7AnrtC1T/APwBPNpy+owQ6DuOTP/WrHRow==", "name"=>"colin", "email"=>"colin.lecordier@gmail.com", "commit"=>"S'enregistrer"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/camion_controller.rb:11
+  [1m[36mUser Create (99.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "colin"], ["email", "colin.lecordier@gmail.com"], ["created_at", "2018-11-15 14:03:51.739710"], ["updated_at", "2018-11-15 14:03:51.739710"]]
+  ↳ app/controllers/camion_controller.rb:11
+  [1m[35m (74.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/camion_controller.rb:11
+  Rendering contact_mailer/contact.html.erb within layouts/mailer
+  Rendered contact_mailer/contact.html.erb within layouts/mailer (0.5ms)
+  Rendering contact_mailer/contact.text.erb within layouts/mailer
+  Rendered contact_mailer/contact.text.erb within layouts/mailer (0.2ms)
+ContactMailer#contact: processed outbound mail in 112.5ms
+Sent mail to contact@test.fr (254.7ms)
+Date: Thu, 15 Nov 2018 15:03:52 +0100
+From: from@example.com
+To: contact@test.fr
+Message-ID: <5bed7cc849069_22452affb6dd413c6170@colin.mail>
+Subject: sujet simple
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_5bed7cc842bb3_22452affb6dd413c6169b";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_5bed7cc842bb3_22452affb6dd413c6169b
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+Bonjour, =0D
+=0D
+Comment =C3=A7a va?=0D
+=0D
+
+----==_mimepart_5bed7cc842bb3_22452affb6dd413c6169b
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <p>Dear colin,</p>
+
+<p>We want Spam for breakfast.</p>
+
+<p>Yours truly,</p>
+<p>Bloody Vikings</p>
+
+  </body>
+</html>
+
+----==_mimepart_5bed7cc842bb3_22452affb6dd413c6169b--
+
+Redirected to http://localhost:3000/congratulation
+Completed 302 Found in 794ms (ActiveRecord: 173.9ms)
+
+
+Started GET "/congratulation" for 127.0.0.1 at 2018-11-15 15:03:52 +0100
+Processing by CamionController#congratulation as HTML
+  Rendering camion/congratulation.html.erb within layouts/application
+  Rendered camion/congratulation.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 16ms (Views: 14.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/congratulation" for 127.0.0.1 at 2018-11-15 15:19:45 +0100
+Processing by CamionController#congratulation as HTML
+  Rendering camion/congratulation.html.erb within layouts/application
+  Rendered camion/congratulation.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 256ms (Views: 169.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-15 15:19:48 +0100
+Processing by CamionController#view as HTML
+  Rendering camion/view.html.erb within layouts/application
+  Rendered camion/view.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 135ms (Views: 15.7ms | ActiveRecord: 60.7ms)
+
+
+Started POST "/" for 127.0.0.1 at 2018-11-15 15:19:56 +0100
+Processing by CamionController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"GaxCZOUjk5EwBrKRxr48PgM5da9A6Gre/5KaMRMJCwIDADG+/s2l3GN6eJI8hcqa/8TKzx5RcnJmntjEzYD82w==", "name"=>"colin", "email"=>"colin.lecordier@gmail.com", "commit"=>"S'enregistrer"}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/camion_controller.rb:11
+  [1m[36mUser Create (152.8ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "colin"], ["email", "colin.lecordier@gmail.com"], ["created_at", "2018-11-15 14:19:56.287627"], ["updated_at", "2018-11-15 14:19:56.287627"]]
+  ↳ app/controllers/camion_controller.rb:11
+  [1m[35m (83.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/camion_controller.rb:11
+  Rendering contact_mailer/contact.html.erb within layouts/mailer
+  Rendered contact_mailer/contact.html.erb within layouts/mailer (0.5ms)
+  Rendering contact_mailer/contact.text.erb within layouts/mailer
+  Rendered contact_mailer/contact.text.erb within layouts/mailer (0.2ms)
+ContactMailer#contact: processed outbound mail in 51.4ms
+Sent mail to colin.lecordier@gmail.com (583.9ms)
+Date: Thu, 15 Nov 2018 15:19:56 +0100
+From: from@example.com
+To: colin.lecordier@gmail.com
+Message-ID: <5bed808cb3d3b_22452affb6dd413c6194e@colin.mail>
+Subject: sujet simple
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_5bed808cafb7f_22452affb6dd413c6185b";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_5bed808cafb7f_22452affb6dd413c6185b
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+Bonjour, =0D
+=0D
+Comment =C3=A7a va?=0D
+=0D
+
+----==_mimepart_5bed808cafb7f_22452affb6dd413c6185b
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <p>Dear colin,</p>
+
+<p>We want Spam for breakfast.</p>
+
+<p>Yours truly,</p>
+<p>Bloody Vikings</p>
+
+  </body>
+</html>
+
+----==_mimepart_5bed808cafb7f_22452affb6dd413c6185b--
+
+Redirected to http://localhost:3000/congratulation
+Completed 302 Found in 1020ms (ActiveRecord: 236.4ms)
+
+
+Started GET "/congratulation" for 127.0.0.1 at 2018-11-15 15:19:57 +0100
+Processing by CamionController#congratulation as HTML
+  Rendering camion/congratulation.html.erb within layouts/application
+  Rendered camion/congratulation.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 28ms (Views: 26.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-15 15:25:13 +0100
+Processing by CamionController#view as HTML
+  Rendering camion/view.html.erb within layouts/application
+  Rendered camion/view.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 145ms (Views: 124.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/" for 127.0.0.1 at 2018-11-15 15:25:20 +0100
+Processing by CamionController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"FpUN77puLwF+rVedtI8PJVCvKeVyXTQ/oHykhYEA4qkMOX41oYAZTC3RnZ5OtPmBrFKWhSzkLJM5cOZwX4kVcA==", "name"=>"colin", "email"=>"colin.lecordier@gmail.com", "commit"=>"S'enregistrer"}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/camion_controller.rb:11
+  [1m[36mUser Create (133.7ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "colin"], ["email", "colin.lecordier@gmail.com"], ["created_at", "2018-11-15 14:25:20.453656"], ["updated_at", "2018-11-15 14:25:20.453656"]]
+  ↳ app/controllers/camion_controller.rb:11
+  [1m[35m (46.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/camion_controller.rb:11
+  Rendering contact_mailer/contact.html.erb within layouts/mailer
+  Rendered contact_mailer/contact.html.erb within layouts/mailer (0.6ms)
+  Rendering contact_mailer/contact.text.erb within layouts/mailer
+  Rendered contact_mailer/contact.text.erb within layouts/mailer (0.3ms)
+ContactMailer#contact: processed outbound mail in 77.3ms
+Sent mail to colin.lecordier@gmail.com (996.7ms)
+Date: Thu, 15 Nov 2018 15:25:20 +0100
+From: from@example.com
+To: colin.lecordier@gmail.com
+Message-ID: <5bed81d0aecba_22452affb6dd44c062116@colin.mail>
+Subject: sujet simple
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_5bed81d0ae07c_22452affb6dd44c0620c4";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_5bed81d0ae07c_22452affb6dd44c0620c4
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+Bonjour, =0D
+=0D
+Comment =C3=A7a va?=0D
+=0D
+
+----==_mimepart_5bed81d0ae07c_22452affb6dd44c0620c4
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <p>Dear colin,</p>
+
+<p>We want Spam for breakfast.</p>
+
+<p>Yours truly,</p>
+<p>Bloody Vikings</p>
+
+  </body>
+</html>
+
+----==_mimepart_5bed81d0ae07c_22452affb6dd44c0620c4--
+
+Redirected to http://localhost:3000/congratulation
+Completed 302 Found in 1260ms (ActiveRecord: 180.4ms)
+
+
+Started GET "/congratulation" for 127.0.0.1 at 2018-11-15 15:25:21 +0100
+Processing by CamionController#congratulation as HTML
+  Rendering camion/congratulation.html.erb within layouts/application
+  Rendered camion/congratulation.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 111ms (Views: 14.9ms | ActiveRecord: 0.0ms)
+
+
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE DATABASE "Apps_development" ENCODING = 'unicode'[0m
+  ↳ bin/rake:9
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE DATABASE "Apps_test" ENCODING = 'unicode'[0m
+  ↳ bin/rake:9
+Started GET "/" for 127.0.0.1 at 2018-11-15 15:45:06 +0100
+  [1m[35m (12.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/colin/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by CamionController#view as HTML
+  Rendering camion/view.html.erb within layouts/application
+  Rendered camion/view.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 339ms (Views: 296.4ms | ActiveRecord: 4.1ms)
+
+
+Started POST "/" for 127.0.0.1 at 2018-11-15 15:45:12 +0100
+Processing by CamionController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7hTA16+3C60hs3lPsBPx217AHltz0iozFd2gwEDKCKf0uLMNtFk94HLPs0xKKAd/oj2hOy1rMp+M0eI1nkP/fg==", "name"=>"colin", "email"=>"colin.lecordier@gmail.com", "commit"=>"S'enregistrer"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/camion_controller.rb:11
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "colin"], ["email", "colin.lecordier@gmail.com"], ["created_at", "2018-11-15 14:45:12.648667"], ["updated_at", "2018-11-15 14:45:12.648667"]]
+  ↳ app/controllers/camion_controller.rb:11
+  [1m[35m (39.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/camion_controller.rb:11
+  Rendering contact_mailer/contact.html.erb within layouts/mailer
+  Rendered contact_mailer/contact.html.erb within layouts/mailer (0.5ms)
+  Rendering contact_mailer/contact.text.erb within layouts/mailer
+  Rendered contact_mailer/contact.text.erb within layouts/mailer (0.2ms)
+ContactMailer#contact: processed outbound mail in 108.5ms
+Sent mail to colin.lecordier@gmail.com (1049.2ms)
+Date: Thu, 15 Nov 2018 15:45:12 +0100
+From: from@example.com
+To: colin.lecordier@gmail.com
+Message-ID: <5bed8678cff2b_264b2aeb901f90cc378ef@colin.mail>
+Subject: sujet simple
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_5bed8678cee42_264b2aeb901f90cc37753";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_5bed8678cee42_264b2aeb901f90cc37753
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+Bonjour, =0D
+=0D
+Comment =C3=A7a va?=0D
+=0D
+
+----==_mimepart_5bed8678cee42_264b2aeb901f90cc37753
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <p>Dear colin,</p>
+
+<p>We want Spam for breakfast.</p>
+
+<p>Yours truly,</p>
+<p>Bloody Vikings</p>
+
+  </body>
+</html>
+
+----==_mimepart_5bed8678cee42_264b2aeb901f90cc37753--
+
+Redirected to http://localhost:3000/congratulation
+Completed 302 Found in 1253ms (ActiveRecord: 40.4ms)
+
+
+Started GET "/congratulation" for 127.0.0.1 at 2018-11-15 15:45:13 +0100
+Processing by CamionController#congratulation as HTML
+  Rendering camion/congratulation.html.erb within layouts/application
+  Rendered camion/congratulation.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 15ms (Views: 14.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/" for 127.0.0.1 at 2018-11-15 15:50:20 +0100
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/colin/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by CamionController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7hTA16+3C60hs3lPsBPx217AHltz0iozFd2gwEDKCKf0uLMNtFk94HLPs0xKKAd/oj2hOy1rMp+M0eI1nkP/fg==", "name"=>"colin", "email"=>"colin.lecordier@gmail.com", "commit"=>"S'enregistrer"}
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/camion_controller.rb:11
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "colin"], ["email", "colin.lecordier@gmail.com"], ["created_at", "2018-11-15 14:50:20.715499"], ["updated_at", "2018-11-15 14:50:20.715499"]]
+  ↳ app/controllers/camion_controller.rb:11
+  [1m[35m (71.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/camion_controller.rb:11
+  Rendering contact_mailer/contact.html.erb within layouts/mailer
+  Rendered contact_mailer/contact.html.erb within layouts/mailer (0.7ms)
+  Rendering contact_mailer/contact.text.erb within layouts/mailer
+  Rendered contact_mailer/contact.text.erb within layouts/mailer (0.2ms)
+ContactMailer#contact: processed outbound mail in 65.9ms
+Sent mail to colin.lecordier@gmail.com (179.5ms)
+Date: Thu, 15 Nov 2018 15:50:20 +0100
+From: from@example.com
+To: colin.lecordier@gmail.com
+Message-ID: <5bed87acda1e8_27212ac5d4c564843430@colin.mail>
+Subject: sujet simple
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_5bed87acd9544_27212ac5d4c56484335f";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_5bed87acd9544_27212ac5d4c56484335f
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+Bonjour, =0D
+=0D
+Comment =C3=A7a va?=0D
+=0D
+
+----==_mimepart_5bed87acd9544_27212ac5d4c56484335f
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <p>Dear colin,</p>
+
+<p>We want Spam for breakfast.</p>
+
+<p>Yours truly,</p>
+<p>Bloody Vikings</p>
+
+  </body>
+</html>
+
+----==_mimepart_5bed87acd9544_27212ac5d4c56484335f--
+
+Completed 500 Internal Server Error in 376ms (ActiveRecord: 76.4ms)
+
+
+  
+Net::SMTPAuthenticationError (535-5.7.8 Username and Password not accepted. Learn more at
+):
+  
+app/controllers/camion_controller.rb:15:in `create'
+Started POST "/" for 127.0.0.1 at 2018-11-15 15:54:52 +0100
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/colin/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by CamionController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7hTA16+3C60hs3lPsBPx217AHltz0iozFd2gwEDKCKf0uLMNtFk94HLPs0xKKAd/oj2hOy1rMp+M0eI1nkP/fg==", "name"=>"colin", "email"=>"colin.lecordier@gmail.com", "commit"=>"S'enregistrer"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/camion_controller.rb:11
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "colin"], ["email", "colin.lecordier@gmail.com"], ["created_at", "2018-11-15 14:54:52.669713"], ["updated_at", "2018-11-15 14:54:52.669713"]]
+  ↳ app/controllers/camion_controller.rb:11
+  [1m[35m (22.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/camion_controller.rb:11
+  Rendering contact_mailer/contact.html.erb within layouts/mailer
+  Rendered contact_mailer/contact.html.erb within layouts/mailer (0.8ms)
+  Rendering contact_mailer/contact.text.erb within layouts/mailer
+  Rendered contact_mailer/contact.text.erb within layouts/mailer (0.3ms)
+ContactMailer#contact: processed outbound mail in 41.0ms
+Sent mail to colin.lecordier@gmail.com (10070.2ms)
+Date: Thu, 15 Nov 2018 15:54:52 +0100
+From: from@example.com
+To: colin.lecordier@gmail.com
+Message-ID: <5bed88bcbfd70_27a23fb2dc00b864295d1@colin.mail>
+Subject: sujet simple
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_5bed88bcbebc8_27a23fb2dc00b8642947e";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_5bed88bcbebc8_27a23fb2dc00b8642947e
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+Bonjour, =0D
+=0D
+Comment =C3=A7a va?=0D
+=0D
+
+----==_mimepart_5bed88bcbebc8_27a23fb2dc00b8642947e
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <p>Dear colin,</p>
+
+<p>We want Spam for breakfast.</p>
+
+<p>Yours truly,</p>
+<p>Bloody Vikings</p>
+
+  </body>
+</html>
+
+----==_mimepart_5bed88bcbebc8_27a23fb2dc00b8642947e--
+
+Completed 500 Internal Server Error in 10204ms (ActiveRecord: 28.8ms)
+
+
+  
+EOFError (end of file reached):
+  
+app/controllers/camion_controller.rb:15:in `create'
+Started POST "/" for 127.0.0.1 at 2018-11-15 16:00:30 +0100
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/colin/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by CamionController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7hTA16+3C60hs3lPsBPx217AHltz0iozFd2gwEDKCKf0uLMNtFk94HLPs0xKKAd/oj2hOy1rMp+M0eI1nkP/fg==", "name"=>"colin", "email"=>"colin.lecordier@gmail.com", "commit"=>"S'enregistrer"}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/camion_controller.rb:11
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "colin"], ["email", "colin.lecordier@gmail.com"], ["created_at", "2018-11-15 15:00:30.870518"], ["updated_at", "2018-11-15 15:00:30.870518"]]
+  ↳ app/controllers/camion_controller.rb:11
+  [1m[35m (14.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/camion_controller.rb:11
+  Rendering contact_mailer/contact.html.erb within layouts/mailer
+  Rendered contact_mailer/contact.html.erb within layouts/mailer (1.7ms)
+  Rendering contact_mailer/contact.text.erb within layouts/mailer
+  Rendered contact_mailer/contact.text.erb within layouts/mailer (0.2ms)
+ContactMailer#contact: processed outbound mail in 29.3ms
+Sent mail to colin.lecordier@gmail.com (187.2ms)
+Date: Thu, 15 Nov 2018 16:00:30 +0100
+From: from@example.com
+To: colin.lecordier@gmail.com
+Message-ID: <5bed8a0ee9a1e_28612ab3fdf81c3c218f3@colin.mail>
+Subject: sujet simple
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_5bed8a0ee8e8b_28612ab3fdf81c3c2179b";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_5bed8a0ee8e8b_28612ab3fdf81c3c2179b
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+Bonjour, =0D
+=0D
+Comment =C3=A7a va?=0D
+=0D
+
+----==_mimepart_5bed8a0ee8e8b_28612ab3fdf81c3c2179b
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <p>Dear colin,</p>
+
+<p>We want Spam for breakfast.</p>
+
+<p>Yours truly,</p>
+<p>Bloody Vikings</p>
+
+  </body>
+</html>
+
+----==_mimepart_5bed8a0ee8e8b_28612ab3fdf81c3c2179b--
+
+Completed 500 Internal Server Error in 291ms (ActiveRecord: 18.0ms)
+
+
+  
+Net::SMTPAuthenticationError (535-5.7.8 Username and Password not accepted. Learn more at
+):
+  
+app/controllers/camion_controller.rb:15:in `create'
+Started GET "/" for 127.0.0.1 at 2018-11-15 16:01:52 +0100
+  [1m[35m (17.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/colin/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by CamionController#view as HTML
+  Rendering camion/view.html.erb within layouts/application
+  Rendered camion/view.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 380ms (Views: 343.2ms | ActiveRecord: 3.7ms)
+
+
+Started POST "/" for 127.0.0.1 at 2018-11-15 16:01:54 +0100
+Processing by CamionController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"zDWVtkkriKOd5Tg/DAp5YG1xtAdTOU6g1yxqJtmZzbjWmeZsUsW+7s6Z8jz2MY/EkYwLZw2AVgxOICjTBxA6YQ==", "name"=>"colin", "email"=>"colin.lecordier@gmail.com", "commit"=>"S'enregistrer"}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/camion_controller.rb:11
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "colin"], ["email", "colin.lecordier@gmail.com"], ["created_at", "2018-11-15 15:01:54.904232"], ["updated_at", "2018-11-15 15:01:54.904232"]]
+  ↳ app/controllers/camion_controller.rb:11
+  [1m[35m (127.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/camion_controller.rb:11
+  Rendering contact_mailer/contact.html.erb within layouts/mailer
+  Rendered contact_mailer/contact.html.erb within layouts/mailer (0.4ms)
+  Rendering contact_mailer/contact.text.erb within layouts/mailer
+  Rendered contact_mailer/contact.text.erb within layouts/mailer (0.2ms)
+ContactMailer#contact: processed outbound mail in 26.1ms
+Sent mail to colin.lecordier@gmail.com (2737.2ms)
+Date: Thu, 15 Nov 2018 16:01:55 +0100
+From: from@example.com
+To: colin.lecordier@gmail.com
+Message-ID: <5bed8a6336b46_28d23ffc96020198141de@colin.mail>
+Subject: sujet simple
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_5bed8a63354ee_28d23ffc9602019814077";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_5bed8a63354ee_28d23ffc9602019814077
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+Bonjour, =0D
+=0D
+Comment =C3=A7a va?=0D
+=0D
+
+----==_mimepart_5bed8a63354ee_28d23ffc9602019814077
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <p>Dear colin,</p>
+
+<p>We want Spam for breakfast.</p>
+
+<p>Yours truly,</p>
+<p>Bloody Vikings</p>
+
+  </body>
+</html>
+
+----==_mimepart_5bed8a63354ee_28d23ffc9602019814077--
+
+Redirected to http://localhost:3000/congratulation
+Completed 302 Found in 3055ms (ActiveRecord: 128.3ms)
+
+
+Started GET "/congratulation" for 127.0.0.1 at 2018-11-15 16:01:58 +0100
+Processing by CamionController#congratulation as HTML
+  Rendering camion/congratulation.html.erb within layouts/application
+  Rendered camion/congratulation.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 41ms (Views: 17.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-15 16:20:05 +0100
+  [1m[35m (15.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/colin/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by CamionController#view as HTML
+  Rendering camion/view.html.erb within layouts/application
+  Rendered camion/view.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 578ms (Views: 525.1ms | ActiveRecord: 4.5ms)
+
+
+Started POST "/" for 127.0.0.1 at 2018-11-15 16:20:33 +0100
+Processing by CamionController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"jkkrCVGk3sFQ4aJ8/2ED5AjxCnK4D/n0VN4Z3zGMMxKU5VjTSkrojAOdaH8FWvVA9Ay1Eua24VjN0lsq7wXEyw==", "name"=>"colin", "email"=>"colin.lecordier@gmail.com", "commit"=>"S'enregistrer"}
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/camion_controller.rb:11
+  [1m[36mUser Create (16.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "colin"], ["email", "colin.lecordier@gmail.com"], ["created_at", "2018-11-15 15:20:33.246444"], ["updated_at", "2018-11-15 15:20:33.246444"]]
+  ↳ app/controllers/camion_controller.rb:11
+  [1m[35m (81.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/camion_controller.rb:11
+  Rendering contact_mailer/contact.html.erb within layouts/mailer
+  Rendered contact_mailer/contact.html.erb within layouts/mailer (0.4ms)
+  Rendering contact_mailer/contact.text.erb within layouts/mailer
+  Rendered contact_mailer/contact.text.erb within layouts/mailer (0.5ms)
+ContactMailer#contact: processed outbound mail in 143.8ms
+Sent mail to colin.lecordier@gmail.com (2206.4ms)
+Date: Thu, 15 Nov 2018 16:20:33 +0100
+From: from@example.com
+To: colin.lecordier@gmail.com
+Message-ID: <5bed8ec1a6a48_2de02aed6b8d7b3c85814@colin.mail>
+Subject: sujet simple
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_5bed8ec1a3b00_2de02aed6b8d7b3c85715";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_5bed8ec1a3b00_2de02aed6b8d7b3c85715
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+Bonjour, =0D
+=0D
+Comment =C3=A7a va?=0D
+=0D
+
+----==_mimepart_5bed8ec1a3b00_2de02aed6b8d7b3c85715
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <p>Dear colin,</p>
+
+<p>We want Spam for breakfast.</p>
+
+<p>Yours truly,</p>
+<p>Bloody Vikings</p>
+
+  </body>
+</html>
+
+----==_mimepart_5bed8ec1a3b00_2de02aed6b8d7b3c85715--
+
+Redirected to http://localhost:3000/congratulation
+Completed 302 Found in 2636ms (ActiveRecord: 98.1ms)
+
+
+Started GET "/congratulation" for 127.0.0.1 at 2018-11-15 16:20:36 +0100
+Processing by CamionController#congratulation as HTML
+  Rendering camion/congratulation.html.erb within layouts/application
+  Rendered camion/congratulation.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 46ms (Views: 16.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-15 17:40:33 +0100
+  [1m[35m (8.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/colin/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by CamionController#view as HTML
+  Rendering camion/view.html.erb within layouts/application
+  Rendered camion/view.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 326ms (Views: 261.3ms | ActiveRecord: 16.9ms)
+
+
