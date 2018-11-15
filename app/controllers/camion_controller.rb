@@ -24,4 +24,11 @@ class CamionController < ApplicationController
   def congratulation
   	
   end
+  
+  #BOT TWITTER
+  def index
+    i = BotTwitter.new.perform
+    i.update
+  end
+
 end
