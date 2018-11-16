@@ -18,4 +18,4 @@
 
 ## ANALYTICS
 
-Nous avons intégré un script analytics entre les balises head pour suivre le trafic.
+Nous avons intégré un script google analytics et un script Mixpanel entre les balises head pour suivre le trafic et tracker le comportement des visiteurs.
