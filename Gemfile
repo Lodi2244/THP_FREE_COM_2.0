@@ -63,3 +63,8 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'bootstrap'
 gem 'jquery-rails'
+
+gem 'watir'
+gem 'watir-scroll'
+gem 'dotenv-rails', groups: [:development, :test]
+
