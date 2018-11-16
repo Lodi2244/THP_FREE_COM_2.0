@@ -1,24 +1,33 @@
-# README
+# LANDING PAGES THP (BG)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+## LE GROUPE
 
-* Ruby version
+- Elodie
+- Alexandre
+- Steve
+- Colin
+- Thomas
+- Marc
 
-* System dependencies
+## Nos 3 landings pages
 
-* Configuration
+- la version "grand public" => https://thehackingproject-2244.herokuapp.com/
+- la version "startup" => https://thehackingproject-2244.herokuapp.com/landing_pages/startup
+- la version s'adressant à une ville (Lyon) => https://thehackingproject-2244.herokuapp.com/landing_pages/lyon
 
-* Database creation
+## ANALYTICS
 
-* Database initialization
+Nous avons intégré un script google analytics et un script Mixpanel entre les balises head pour suivre le trafic et tracker le comportement des visiteurs.
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+## OPERATION MARKETING
 
-* Deployment instructions
 
-* ...
+
+
+## MAILER
+
+
+
+## TEST 
