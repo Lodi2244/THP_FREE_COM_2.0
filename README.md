@@ -16,4 +16,6 @@
 - la version "startup" => https://thehackingproject-2244.herokuapp.com/startup
 - la version s'adressant à une ville (Lyon) => https://thehackingproject-2244.herokuapp.com/lyon
 
-## EXPLICATION
+## ANALYTICS
+
+Nous avons intégré un script analytics entre les balises head pour suivre le trafic.
